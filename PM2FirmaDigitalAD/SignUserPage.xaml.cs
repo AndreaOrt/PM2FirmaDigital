@@ -22,6 +22,7 @@ namespace PM2FirmaDigitalAD
             if (image == null)
             {
                 await DisplayAlert("Alerta", "Por favor ingrese la firma", "OK");
+                return;
             }
             
             BinaryReader br = new BinaryReader(image);
