@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:forms="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+    x:Class="PM2FirmaDigitalAD.SignUserPage">
+
+     <StackLayout Padding="10,0,0,0">
+            <forms:SignaturePadView x:Name="SignPadView" StrokeColor="Black" Background="white" StrokeWidth="3" WidthRequest="280" HeightRequest="360"/>
+
+            <Label Text="Nombre"></Label>
+            <Entry x:Name="txtNombre" Placeholder="Ingrese el Nombre"></Entry>
+
+            <Label Text="Descripcion"></Label>
+            <Entry x:Name="txtDescripcion" Placeholder="Ingrese una descripcion"></Entry>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="btnGuardar" Text="Guardar" Clicked="btnGuardar_Clicked" Grid.Column="0" BackgroundColor="Green"/>
+                <Button x:Name="btnListaFirmas" Text="Lista Firmas" Clicked="btnListaFirmas_Clicked" Grid.Column="1" BackgroundColor="LightSkyBlue"/>
+            </Grid>
+     </StackLayout>
+</ContentPage>
