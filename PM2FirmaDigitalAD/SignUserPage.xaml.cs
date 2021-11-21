@@ -18,12 +18,17 @@ namespace PM2FirmaDigitalAD
         private async void btnGuardar_Clicked(System.Object sender, System.EventArgs e)
         {
             Stream image = await this.SignPadView.GetImageStreamAsync(SignaturePad.Forms.SignatureImageFormat.Png);
+
+            if (image == null)
+            {
+                await DisplayAlert("Alerta", "Por favor ingrese la firma", "OK");
+            }
+            
             BinaryReader br = new BinaryReader(image);
 
             Byte[] bytesPath = br.ReadBytes((Int32)image.Length);
             String pathBase64 = Convert.ToBase64String(bytesPath, 0, bytesPath.Length);
 
-            var mStream = new MemoryStream(bytesPath);
 
             if (!String.IsNullOrEmpty(txtNombre.Text) || !String.IsNullOrEmpty(txtDescripcion.Text))
             {
